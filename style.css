@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
+
+
+
+html, body, section {
+    block-size: 100%;
+    font-family: "Jura", sans-serif;
+  }
+  
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  section:nth-of-type(even) {
+    color: white;
+    background: black;
+  }
+  
+  section:nth-of-type(odd) {
+    color: black;
+    background: white;
+  }
+  
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    font-size: 4rem;
+  }
+  
+  #smoke-1 {
+    stroke-dasharray: 0, 10;
+    animation: smoke 6s ease infinite;
+  }
+  
+  #smoke-2 {
+    stroke-dasharray: 0, 10;
+    animation: smoke 6s 0.5s ease infinite;
+  }
+  
+  @keyframes smoke {
+    0% { stroke-dasharray: 0, 10; }
+    50% { stroke-dasharray: 10, 0; }
+    100% { stroke-dasharray: 10, 0; opacity: 0; }
+  }
+  
+  /* WRITING */
+  #line-1 {
+    opacity: 0;
+    animation: writing 0.5s linear forwards;
+  }
+  
+  #line-2 {
+    opacity: 0;
+    animation: writing 0.5s 1s linear forwards;
+  }
+  
+  #line-3 {
+    opacity: 0;
+    animation: writing 0.5s 1.5s linear forwards;
+  }
+  
+  #line-4 {
+    opacity: 0;
+    animation: writing 0.5s 2s linear forwards;
+  }
+  
+  @keyframes writing {
+    0% { width: 0px; opacity: 1;}
+    100% { width: 14px; opacity: 1;}
+  }
+  .background{
+    display: flex;
+    justify-content:center;
+margin-top:20vh;
+  }
+
+  
+  nav {
+    position: fixed;
+    font-family: "Jura", sans-serif;
+    height: 35%;  
+    left: -3%;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background-color: #fefefe;
+    padding: 30px 1px;
+    border-radius: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column;
+    margin-top: -10%;
+    height: 100%;
+}
+
+nav ul li {
+    width: 100%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1a2238;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s all ease;
+}
+
+nav ul li a svg {
+    width: 30px;
+    height: 30px;
+}
+
+nav ul li a svg path {
+    transition: 0.2s all ease;
+}
+
+nav ul li a span {
+    position: absolute;
+    background-color: #fefefe;
+    padding: 2px 15px;
+    border-radius: 30px;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s all ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #f15627;
+}
+
+nav ul li a.active span,
+nav ul li a:hover span {
+    opacity: 1;
+    visibility: visible;
+    margin-left: 50px;
+}
+
+nav.active ul li a span {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0;
+}
+
+nav.active ul li a:hover span {
+    margin-left: 0;
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 30px auto;
+  background-color: beige;
+  width: 20vw;
+  height: 45vh;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+/*
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+*/
